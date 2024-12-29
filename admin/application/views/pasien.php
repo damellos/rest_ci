@@ -54,9 +54,9 @@
         </div>
         <div class="modal-body">
         <form action="<?= base_url('pasien/edit') ?>" method="post">
-    <input type="hidden" name="dokter_id" value="<?= $row->dokter_id ?>">
+    <input type="hidden" name="pasien_id" value="<?= $row->pasien_id ?>">
     <div class="form-group">
-        <label>Nama Dokter</label>
+        <label>Nama Pasien</label>
         <input type="text" name="nama" class="form-control" value="<?= $row->Nama ?>">
     </div>
     <div class="form-group">
@@ -68,9 +68,14 @@
         <input type="text" name="tgl_lahir" class="form-control" value="<?= $row->Tgl_Lahir ?>">
     </div>
     <div class="form-group">
-        <label>Jenis Kelamin</label>
-        <input type="text" name="jenis_kelamin" class="form-control" value="<?= $row->Jenis_Kelamin ?>">
-    </div>
+            <label for="jenis_kelamin">Jenis Kelamin</label>
+            <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" value="<?= $row->Jenis_Kelamin ?>">
+                <option value="">-- Pilih Jenis Kelamin --</option>
+                <option value="L" <?= set_select('jenis_kelamin', 'L'); ?>>Laki-laki</option>
+                <option value="P" <?= set_select('jenis_kelamin', 'P'); ?>>Perempuan</option>
+            </select>
+            <?= form_error('jenis_kelamin', '<small class="text-danger">', '</small>'); ?>
+        </div>
     <div class="form-group">
         <label>Nomor Handphone</label>
         <input type="tel" name="no_hp" class="form-control" value="<?= $row->No_Hp ?>">
