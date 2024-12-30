@@ -1,10 +1,6 @@
           <form action="<?= base_url('dokter/tambah_aksi')?>" method="post">
             <div class="card-body">
               <div class="form-group">
-                <label>Id Dokter</label>
-                <input type="text" name="dokter_id" class="form-control">
-              </div>
-              <div class="form-group">
                 <label>Nama Dokter</label>
                 <input type="text" name="nama" class="form-control">
               </div>
