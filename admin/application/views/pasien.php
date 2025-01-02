@@ -24,11 +24,11 @@
         <tbody>
           <tr>
             <td class="text-center"><?php echo $no++; ?></td>
-            <td><?php echo $row->Nama; ?></td>
-            <td class="text-center"><?php echo $row->Alamat; ?></td>
-            <td class="text-center"><?php echo $row->Tgl_Lahir; ?></td>
-            <td class="text-center"><?php echo $row->Jenis_Kelamin; ?></td>
-            <td class="text-center"><?php echo $row->No_Hp; ?></td>
+            <td><?php echo $row->nama; ?></td>
+            <td class="text-center"><?php echo $row->alamat; ?></td>
+            <td class="text-center"><?php echo $row->tgl_lahir; ?></td>
+            <td class="text-center"><?php echo $row->jenis_kelamin; ?></td>
+            <td class="text-center"><?php echo $row->no_hp; ?></td>
             <td class="text-center">
               <button data-toggle="modal" data-target="#edit<?= $row->pasien_id?>" class="btn btn-warning btn-sm" data-ci-toggle="tooltip" title="Edit"><i class="fas fa-edit"></i></button> 
               <a href="<?= base_url('pasien/delete/' . $row->pasien_id) ?>" class="btn btn-danger btn-sm" data-ci-toggle="tooltip" title="Delete" onclick="return confirm('Yakin ingin menghapus data?')"><i class="fas fa-trash"></i></a>
@@ -57,28 +57,30 @@
     <input type="hidden" name="pasien_id" value="<?= $row->pasien_id ?>">
     <div class="form-group">
         <label>Nama Pasien</label>
-        <input type="text" name="nama" class="form-control" value="<?= $row->Nama ?>">
+        <input type="text" name="nama" class="form-control" value="<?= $row->nama ?>">
     </div>
     <div class="form-group">
         <label>Alamat</label>
-        <input type="text" name="alamat" class="form-control" value="<?= $row->Alamat ?>">
+        <input type="text" name="alamat" class="form-control" value="<?= $row->alamat ?>">
     </div>
     <div class="form-group">
         <label>Tanggal Lahir</label>
-        <input type="text" name="tgl_lahir" class="form-control" value="<?= $row->Tgl_Lahir ?>">
+        <input type="text" name="tgl_lahir" class="form-control" value="<?= $row->tgl_lahir ?>">
     </div>
     <div class="form-group">
-            <label for="jenis_kelamin">Jenis Kelamin</label>
-            <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" value="<?= $row->Jenis_Kelamin ?>">
-                <option value="">-- Pilih Jenis Kelamin --</option>
-                <option value="L" <?= set_select('jenis_kelamin', 'L'); ?>>Laki-laki</option>
-                <option value="P" <?= set_select('jenis_kelamin', 'P'); ?>>Perempuan</option>
-            </select>
-            <?= form_error('jenis_kelamin', '<small class="text-danger">', '</small>'); ?>
-        </div>
+    <label>Jenis Kelamin</label>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="jenis_kelamin" value="L" <?= $row->jenis_kelamin == 'L' ? 'checked' : '' ?>>
+        <label class="form-check-label">L</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="jenis_kelamin" value="P" <?= $row->jenis_kelamin == 'P' ? 'checked' : '' ?>>
+        <label class="form-check-label">P</label>
+    </div>
+</div>
     <div class="form-group">
         <label>Nomor Handphone</label>
-        <input type="tel" name="no_hp" class="form-control" value="<?= $row->No_Hp ?>">
+        <input type="tel" name="no_hp" class="form-control" value="<?= $row->no_hp ?>">
     </div>
     <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
 </form>
